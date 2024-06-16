@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Servicios Integrados E-commerce
 
-## Getting Started
+Bienvenido al proyecto de e-commerce de Servicios Integrados. Este proyecto está diseñado para ofrecer productos tecnológicos a través de una plataforma en línea. Utiliza las últimas tecnologías para garantizar un rendimiento óptimo y una experiencia de usuario excepcional.
 
-First, run the development server:
+## Tecnologías Utilizadas
 
-```bash
+- **Next.js**: Un framework de React para aplicaciones web modernas.
+- **TypeScript**: Un superset de JavaScript que añade tipos estáticos y mejoras de desarrollo.
+- **Prisma**: Un ORM moderno y seguro para Node.js y TypeScript que simplifica la interacción con la base de datos.
+- **shadcn/ui**: Una biblioteca de componentes UI para construir interfaces de usuario consistentes y accesibles.
+- **Resend.js**: Una biblioteca para el manejo y envío de correos electrónicos de manera sencilla y eficiente.
+- **Docker**: Utilizado para contenerizar y gestionar el backend de manera eficiente.
+<!--
+
+## Requisitos Previos
+
+Asegúrate de tener instalados los siguientes programas antes de comenzar:
+
+- Node.js (v14 o superior)
+- npm o yarn
+
+## Instalación
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/servicios-integrados-ecommerce.git
+   ```
+2. Navega al directorio del proyecto:
+   ```bash
+   cd servicios-integrados-ecommerce
+   ```
+3. Instala las dependencias:
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+4. Configura las variables de entorno:
+   - Crea un archivo `.env` en la raíz del proyecto.
+   - Agrega las siguientes variables de entorno:
+     ```
+     DATABASE_URL=your_database_url
+     RESEND_API_KEY=your_resend_api_key
+     ```
+
+## Uso
+
+Para ejecutar el proyecto en modo desarrollo, utiliza el siguiente comando:
+
+````bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+``` -->
+````
