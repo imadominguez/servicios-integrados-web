@@ -8,6 +8,9 @@ import { login } from '@/actions';
 
 import { Button, buttonVariants } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { getSession } from 'next-auth/react';
+import { showToast } from '@/lib/toast';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -17,8 +20,21 @@ export default function LoginForm() {
     const { ok, message } = await login(formData);
 
     if (!ok) {
+      showToast({
+        message: message || 'Error al iniciar sesion',
+        type: 'error',
+        duration: 3000,
+      });
       return;
     }
+
+    const session = await getSession();
+
+    showToast({
+      message: `Bienvenido ${session?.user?.name}`,
+      type: 'success',
+      duration: 3000,
+    });
     router.push('/');
   };
 
