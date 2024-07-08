@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@/auth.config';
+import { signIn } from '@/auth';
 import { sleep } from '@/utils';
 import { AuthError } from 'next-auth';
 
@@ -25,9 +25,11 @@ export async function authenticate(
   }
 }
 
-export const login = async (email: string, password: string) => {
+export const login = async (formData: FormData) => {
   try {
-    await signIn('credentials', { email, password });
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    await signIn('credentials', { email, password, redirect: false });
 
     return { ok: true };
   } catch (error) {
