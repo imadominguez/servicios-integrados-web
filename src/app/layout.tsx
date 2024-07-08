@@ -21,15 +21,15 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={cn('min-h-dvh', font.className)}>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
-        >
-          <Toaster richColors />
-          {children}
-        </ThemeProvider>
+        > */}
+        <Toaster richColors />
+        {children}
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
