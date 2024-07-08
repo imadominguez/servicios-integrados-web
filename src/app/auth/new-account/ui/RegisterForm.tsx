@@ -1,88 +1,94 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { registerUser, login } from '@/actions';
-import clsx from 'clsx';
-type FormInputs = {
-  name: string;
-  email: string;
-  password: string;
-};
+import React, { FormEvent } from 'react';
+import { login, registerUser } from '@/actions';
+import { Input } from '@/components/ui/input';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { showToast } from '@/lib/toast';
+import { useRouter } from 'next/navigation';
+
 export const RegisterForm = () => {
-  const [errorMessage, setErrorMessage] = useState('');
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormInputs>();
+  const router = useRouter();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const name = data.get('name') as string;
+      const email = data.get('email') as string;
+      const password = data.get('password') as string;
 
-  const onSubmit: SubmitHandler<FormInputs> = async (data) => {
-    setErrorMessage('');
-    const { name, email, password } = data;
+      const { ok, message, user } = await registerUser(name, email, password);
 
-    // Server action
-    const resp = await registerUser(name, email, password);
+      if (!ok) {
+        showToast({ message, type: 'error' });
+        return;
+      }
 
-    if (!resp.ok) {
-      setErrorMessage(resp.message);
-      return;
+      showToast({ message, type: 'success' });
+
+      const { ok: isLogin, message: messageLogin } = await login(data);
+
+      if (!isLogin && messageLogin) {
+        showToast({ message: messageLogin, type: 'error' });
+        return;
+      }
+
+      showToast({ message: `Bienvenido/a ${user?.name}`, type: 'success' });
+
+      router.push('/');
+
+      // const response = await registerUser(data);
+      // console.log(response);
+    } catch (error) {
+      console.error(error);
     }
-
-    await login(email.toLowerCase(), password);
-    window.location.replace('/');
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-      <label htmlFor="text">Nombre completo</label>
-      <input
-        className={clsx(
-          'dark:bg-dark-second dark:border-dark-second mb-5  rounded border bg-gray-200 px-5 py-2',
-          {
-            'border-red-500': errors.name,
-          },
-        )}
-        type="text"
-        autoFocus
-        {...register('name', { required: true })}
-      />
-      <label htmlFor="email">Correo electronico</label>
-      <input
-        className={clsx(
-          'dark:bg-dark-second dark:border-dark-second mb-5  rounded border bg-gray-200 px-5 py-2',
-          {
-            'border-red-500': errors.email,
-          },
-        )}
-        type="email"
-        {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-      />
-      <label htmlFor="email">Contraseña</label>
-      <input
-        className={clsx(
-          'dark:bg-dark-second dark:border-dark-second mb-5  rounded border bg-gray-200 px-5 py-2',
-          {
-            'border-red-500': errors.password,
-          },
-        )}
-        type="password"
-        {...register('password', { required: true, minLength: 6 })}
-      />
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6 mt-10 sm:mx-auto w-full sm:max-w-sm"
+    >
+      <div>
+        <Label htmlFor="text">Nombre completo</Label>
+        <Input id="name" name="name" type="text" autoFocus />
+      </div>
+      <div>
+        <Label htmlFor="email">Correo electronico</Label>
+        <Input id="email" name="email" type="email" />
+      </div>
 
-      <span className="text-red-500">{errorMessage} </span>
+      <div>
+        <Label htmlFor="email">Contraseña</Label>
+        <Input name="password" type="password" />
+      </div>
 
-      <button className="btn-primary">Crear cuenta</button>
+      {/* <span className="text-red-500">{errorMessage} </span> */}
+
+      <Button
+        type="submit"
+        variant={'primary'}
+        className="w-full mt-4 sm:max-w-sm"
+      >
+        Crear cuenta
+      </Button>
 
       {/* divisor l ine */}
       <div className="my-5 flex items-center">
         <div className="flex-1 border-t border-gray-500"></div>
-        <div className="px-2 text-gray-800">O</div>
+        <div className="px-2">O</div>
         <div className="flex-1 border-t border-gray-500"></div>
       </div>
 
-      <Link href="/auth/login" className="btn-secondary text-center">
+      <Link
+        href="/auth/login"
+        className={buttonVariants({
+          variant: 'secondary',
+          className: 'w-full',
+        })}
+      >
         Ingresar
       </Link>
     </form>
