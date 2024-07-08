@@ -3,7 +3,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { font } from '@/config/fonts';
 import { ThemeProvider } from '@/providers/theme-provider';
-
+import { Toaster } from 'sonner';
 export const metadata: Metadata = {
   title: {
     template: '%s - Servicios Integrados | SHOP',
@@ -27,6 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster richColors />
           {children}
         </ThemeProvider>
       </body>
