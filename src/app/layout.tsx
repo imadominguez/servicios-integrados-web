@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={cn('min-h-dvh', font.className)}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
