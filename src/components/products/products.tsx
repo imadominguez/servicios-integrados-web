@@ -1,9 +1,9 @@
-import React from 'react';
 import prisma from '@/lib/prisma';
 import { ProductList } from './product-list';
 import { type PageShopProps } from '@/app/shop/page';
 import { Pagination } from './pagination';
 import { revalidatePath } from 'next/cache';
+import { sleep } from '@/utils';
 
 export type fetchProductsType = typeof fetchProducts;
 
@@ -36,6 +36,7 @@ export const Products = async (props: PageShopProps) => {
 
   const take = PAGE_SIZE;
   const skip = (pageNumber - 1) * take;
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const { data, metadata } = await fetchProducts({
     take,
     skip,
