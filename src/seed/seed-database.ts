@@ -33,25 +33,40 @@ async function main() {
   // Crea un mapa para asignar nombres de categorías a identificadores de base de datos
 
   // Para cada producto, crea registros en la base de datos y asocia imágenes
-  products.forEach(async product => {
-    // Crea un nuevo producto en la base de datos
+  // products.forEach(async product => {
+  //   // Crea un nuevo producto en la base de datos
 
+  //   const newProduct = await prisma.product.create({
+  //     data: {
+  //       title: product.title,
+  //       description: product.description,
+  //       price: product.price,
+  //       color: product.color,
+  //       inStock: product.inStock,
+  //       slug: product.slug,
+  //       categoryId: categoriesDB[0].id, // Asigna la primera categoría
+  //       tags: product.tags.map(tag => tag),
+  //       images: [...(product.images ?? []).map(image => image)] || [],
+  //     },
+  //   });
+
+  //   // Crea registros de imágenes relacionadas con el producto
+  // });
+  for (let i = 0; i < products.length; i++) {
     const newProduct = await prisma.product.create({
       data: {
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        color: product.color,
-        inStock: product.inStock,
-        slug: product.slug,
-        categoryId: categoriesDB[0].id, // Asigna la primera categoría
-        tags: product.tags.map(tag => tag),
-        images: [...(product.images ?? []).map(image => image)] || [],
+        title: `Producto ${i + 1}`,
+        description: `Descripción del producto ${i + 1}`,
+        price: Math.floor(Math.random() * 1000),
+        color: 'black',
+        inStock: Math.floor(Math.random() * 100),
+        slug: `producto-${i + 1}`,
+        categoryId: categoriesDB[0].id,
+        tags: ['tag1', 'tag2'],
+        images: [...(products[i].images ?? [])] || [],
       },
     });
-
-    // Crea registros de imágenes relacionadas con el producto
-  });
+  }
   console.log('✅ Productos creados');
   users.forEach(async user => {
     await prisma.user.create({
