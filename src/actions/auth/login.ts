@@ -3,6 +3,7 @@
 import { signIn } from '@/auth';
 import { sleep } from '@/utils';
 import { AuthError } from 'next-auth';
+import { revalidatePath } from 'next/cache';
 
 // ...
 
@@ -31,6 +32,8 @@ export async function authenticate(
       };
     }
 
+    revalidatePath('/');
+    // ?? En caso de que el usuario este verificado se retorna un objeto con un mensaje de exito
     return {
       ok: true,
       message: 'Inicio de sesión exitoso',
