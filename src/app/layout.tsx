@@ -5,6 +5,8 @@ import { font } from '@/config/fonts';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { Toaster } from 'sonner';
 import { Navbar } from '@/components/navbar/navbar';
+import { AOSInit } from './aos';
+
 export const metadata: Metadata = {
   title: {
     template: '%s - Servicios Integrados | SHOP',
@@ -21,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <AOSInit />
       <body className={cn('min-h-dvh', font.className)}>
         <ThemeProvider
           attribute="class"
