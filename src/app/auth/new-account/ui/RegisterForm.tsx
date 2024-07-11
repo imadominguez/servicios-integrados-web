@@ -47,7 +47,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 mt-10  w-full ">
+    <form onSubmit={handleSubmit} className="mt-10 w-full space-y-6">
       <div className="space-y-2">
         <Label htmlFor="text">Nombre completo</Label>
         <Input id="name" name="name" type="text" autoFocus />
@@ -67,7 +67,7 @@ export const RegisterForm = () => {
       <Button
         type="submit"
         variant={'primary'}
-        className="w-full mt-4 sm:max-w-sm"
+        className="mt-4 w-full sm:max-w-sm"
       >
         Crear cuenta
       </Button>

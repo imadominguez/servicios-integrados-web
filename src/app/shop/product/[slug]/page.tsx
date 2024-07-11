@@ -70,7 +70,7 @@ export default function Example() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className=" max-w-7xl mx-auto">
+    <div className="mx-auto max-w-7xl">
       {/* <nav aria-label="Breadcrumb">
         <ol
           role="list"
@@ -109,9 +109,9 @@ export default function Example() {
           </li>
         </ol>
       </nav> */}
-      <div className="grid grid-cols-1 relative md:grid-cols-2">
+      <div className="relative grid grid-cols-1 md:grid-cols-2">
         {/* Image gallery */}
-        <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden  md:block md:sticky md:top-0 md:bottom-0 md:left-0 md:max-h-[99dvh] md:z-40">
+        <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden md:sticky md:bottom-0 md:left-0 md:top-0 md:z-40 md:block md:max-h-[99dvh]">
           <Image
             width={500}
             height={500}
@@ -120,7 +120,7 @@ export default function Example() {
             className="h-full w-full object-cover object-center"
           />
         </div>
-        <div className="md:hidden max-h-[55dvh]">
+        <div className="max-h-[55dvh] md:hidden">
           <Image
             width={500}
             height={500}
@@ -157,7 +157,7 @@ export default function Example() {
 
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 md:grid md:max-w-7xl md:grid-cols-3 md:grid-rows-[auto,auto,1fr] md:gap-x-8 md:px-8 md:pb-24 md:pt-16">
-          <div className="md:col-span-3   md:pr-8">
+          <div className="md:col-span-3 md:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               {product.name}
             </h1>
@@ -290,7 +290,7 @@ export default function Example() {
                 href={'/shop/checkout'}
                 className={buttonVariants({
                   variant: 'outline',
-                  className: 'w-full mt-3',
+                  className: 'mt-3 w-full',
                 })}
               >
                 Finalizar compra
@@ -298,7 +298,7 @@ export default function Example() {
             </form>
           </div>
 
-          <div className="py-10 md:col-span-3 md:col-start-1   md:pb-16 md:pr-8 md:pt-6">
+          <div className="py-10 md:col-span-3 md:col-start-1 md:pb-16 md:pr-8 md:pt-6">
             {/* Description and details */}
             <div>
               <h3 className="sr-only">Description</h3>

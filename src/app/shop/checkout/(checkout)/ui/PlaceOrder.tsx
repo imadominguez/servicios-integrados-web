@@ -177,7 +177,7 @@ export const PlaceOrder = () => {
             <p className="whitespace-nowrap text-xs">2 Discounts Applied</p>
           </span> */}
           <Badge variant={'green'} className="">
-            <BadgeCheckIcon className="h-4 w-4 mr-1" />
+            <BadgeCheckIcon className="mr-1 h-4 w-4" />
             <span className="text-xs">2 Descuentos Aplicados</span>
           </Badge>
         </div>

@@ -24,13 +24,13 @@ export const OrderSummary = () => {
   if (!loaded) {
     return (
       // Placeholder animado mientras se carga la información
-      <div className="sticky top-20 mx-auto h-fit w-96 rounded bg-gray-200 p-7 shadow-lg dark:bg-dark-accent dark:shadow-dark-second sm:mx-0"></div>
+      <div className="dark:bg-dark-accent dark:shadow-dark-second sticky top-20 mx-auto h-fit w-96 rounded bg-gray-200 p-7 shadow-lg sm:mx-0"></div>
     );
   }
 
   // Renderización del resumen de la orden
   return (
-    <Card className="sticky top-20 w-full h-fit bg-muted ">
+    <Card className="sticky top-20 h-fit w-full bg-muted">
       <CardHeader>
         <CardTitle>Resumen de orden</CardTitle>
       </CardHeader>
@@ -54,15 +54,15 @@ export const OrderSummary = () => {
           {/* Impuestos aplicados a la orden */}
           {/* <span className="text-right font-semibold">{currencyFormat(tax)}</span> */}
 
-          <span className="mt-5 ">Total: </span>
+          <span className="mt-5">Total: </span>
           {/* Total de la orden */}
-          <span className="mt-5 text-right font-semibold ">
+          <span className="mt-5 text-right font-semibold">
             {/* {currencyFormat(total)} */}
           </span>
         </div>
 
         {/* Botón para ir al proceso de pago */}
-        <div className="mb-2 mt-5 text-sm w-full">
+        <div className="mb-2 mt-5 w-full text-sm">
           <Link
             href={'/checkout/address'}
             className={buttonVariants({

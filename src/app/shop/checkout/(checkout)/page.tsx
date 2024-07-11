@@ -41,7 +41,7 @@ export default function CheckoutPage() {
 
           <div className="mt-8">
             <ul className="space-y-4">
-              <li className="flex items-center gap-4 bg-muted pr-2 rounded-md overflow-hidden">
+              <li className="flex items-center gap-4 overflow-hidden rounded-md bg-muted pr-2">
                 <Image
                   width={64}
                   height={64}
@@ -51,9 +51,9 @@ export default function CheckoutPage() {
                 />
 
                 <div>
-                  <h3 className="text-sm ">Basic Tee 6-Pack</h3>
+                  <h3 className="text-sm">Basic Tee 6-Pack</h3>
 
-                  <dl className="mt-0.5 space-y-px text-[10px] ">
+                  <dl className="mt-0.5 space-y-px text-[10px]">
                     <div>
                       <dt className="inline">Size:</dt>
                       <dd className="inline">XXS</dd>
@@ -78,11 +78,11 @@ export default function CheckoutPage() {
                       min="1"
                       value="1"
                       id="Line1Qty"
-                      className="h-8 w-12 rounded p-0 text-center text-xs  [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      className="h-8 w-12 rounded p-0 text-center text-xs [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                     />
                   </form>
 
-                  <button className=" transition hover:text-red-600">
+                  <button className="transition hover:text-red-600">
                     <span className="sr-only">Remove item</span>
 
                     <svg
@@ -103,7 +103,7 @@ export default function CheckoutPage() {
                 </div>
               </li>
 
-              <li className="flex items-center gap-4 bg-muted pr-2 rounded-md overflow-hidden">
+              <li className="flex items-center gap-4 overflow-hidden rounded-md bg-muted pr-2">
                 <Image
                   width={64}
                   height={64}
@@ -113,9 +113,9 @@ export default function CheckoutPage() {
                 />
 
                 <div>
-                  <h3 className="text-sm ">Basic Tee 6-Pack</h3>
+                  <h3 className="text-sm">Basic Tee 6-Pack</h3>
 
-                  <dl className="mt-0.5 space-y-px text-[10px] ">
+                  <dl className="mt-0.5 space-y-px text-[10px]">
                     <div>
                       <dt className="inline">Size:</dt>
                       <dd className="inline">XXS</dd>
@@ -140,11 +140,11 @@ export default function CheckoutPage() {
                       min="1"
                       value="1"
                       id="Line2Qty"
-                      className="h-8 w-12 rounded p-0 text-center text-xs  [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      className="h-8 w-12 rounded p-0 text-center text-xs [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                     />
                   </form>
 
-                  <button className=" transition hover:text-red-600">
+                  <button className="transition hover:text-red-600">
                     <span className="sr-only">Remove item</span>
 
                     <svg
@@ -165,7 +165,7 @@ export default function CheckoutPage() {
                 </div>
               </li>
 
-              <li className="flex items-center gap-4 bg-muted pr-2 rounded-md overflow-hidden">
+              <li className="flex items-center gap-4 overflow-hidden rounded-md bg-muted pr-2">
                 <Image
                   width={64}
                   height={64}
@@ -175,9 +175,9 @@ export default function CheckoutPage() {
                 />
 
                 <div>
-                  <h3 className="text-sm ">Basic Tee 6-Pack</h3>
+                  <h3 className="text-sm">Basic Tee 6-Pack</h3>
 
-                  <dl className="mt-0.5 space-y-px text-[10px] ">
+                  <dl className="mt-0.5 space-y-px text-[10px]">
                     <div>
                       <dt className="inline">Size:</dt>
                       <dd className="inline">XXS</dd>
@@ -202,11 +202,11 @@ export default function CheckoutPage() {
                       min="1"
                       value="1"
                       id="Line3Qty"
-                      className="h-8 w-12 rounded p-0 text-center text-xs  [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                      className="h-8 w-12 rounded p-0 text-center text-xs [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                     />
                   </form>
 
-                  <button className=" transition hover:text-red-600">
+                  <button className="transition hover:text-red-600">
                     <span className="sr-only">Remove item</span>
 
                     <svg

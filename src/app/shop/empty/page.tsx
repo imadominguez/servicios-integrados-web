@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function EmptyPage() {
   return (
     <div className="flex h-[80dvh] w-full flex-col items-center justify-center">
-      <ShoppingCartIcon size={80} className="mx-5 w-10 h-10" />
-      <div className="flex flex-col items-center  mt-3">
+      <ShoppingCartIcon size={80} className="mx-5 h-10 w-10" />
+      <div className="mt-3 flex flex-col items-center">
         <h1 className="text-xl font-semibold">Tu carrito esta vacio</h1>
       </div>
 

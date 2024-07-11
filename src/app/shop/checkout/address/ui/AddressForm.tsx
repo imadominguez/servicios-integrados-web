@@ -80,7 +80,7 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   return (
     <form
       // onSubmit={handleSubmit(onSubmit)}
-      className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-5 w-full "
+      className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-5"
     >
       <div className="mb-2 flex flex-col">
         <span>Nombres</span>
@@ -166,7 +166,7 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
       </div>
 
       <div className="mb-2 flex flex-col sm:mt-1">
-        <div className="mb-10 inline-flex items-center ">
+        <div className="mb-10 inline-flex items-center">
           <label
             className="relative flex items-center rounded-full p-3"
             htmlFor="checkbox"

@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <div className=" flex items-center justify-center px-5">
-      <div className="flex w-[1000px]  flex-col ">
+    <div className="flex items-center justify-center px-5">
+      <div className="flex w-[1000px] flex-col">
         <Title title="Carrito de compra" subtitle="Articulos en tu carrito" />
-        <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2 ">
+        <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2">
           {/* Carrito */}
-          <div className="flex flex-col ">
+          <div className="flex flex-col">
             <Link
               href={'/shop'}
               className={buttonVariants({
