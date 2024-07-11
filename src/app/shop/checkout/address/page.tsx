@@ -26,7 +26,7 @@ export default async function AddressPage() {
     (await getUserAddress(session.user.id ?? '')) ?? undefined;
 
   return (
-    <div className="flex flex-col px-10 sm:items-start sm:justify-start sm:px-5 max-w-7xl mx-auto">
+    <div className="mx-auto flex max-w-7xl flex-col px-10 sm:items-start sm:justify-start sm:px-5">
       <Title
         title="Dirección"
         subtitle="Dirección de entrega"
