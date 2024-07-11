@@ -22,7 +22,7 @@ export default function CartPage() {
           {/* Carrito */}
           <div className="flex flex-col ">
             <Link
-              href={'/'}
+              href={'/shop'}
               className={buttonVariants({
                 variant: 'secondary',
                 className: 'mb-5',
