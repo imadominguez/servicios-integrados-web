@@ -28,8 +28,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-
           <Toaster richColors />
           {children}
         </ThemeProvider>
