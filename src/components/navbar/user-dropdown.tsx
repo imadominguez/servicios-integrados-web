@@ -21,7 +21,7 @@ export const UserDropdown = ({ name }: { name: string | null | undefined }) => {
       {name ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm" className="">
+            <Button variant="outline" size="sm" className="w-full text-sm">
               Mi cuenta
             </Button>
           </DropdownMenuTrigger>
@@ -46,6 +46,7 @@ export const UserDropdown = ({ name }: { name: string | null | undefined }) => {
           href={'/auth/login'}
           className={buttonVariants({
             variant: 'ghost',
+            className: 'text-sm w-full',
           })}
         >
           <LogInIcon className="mr-2 w-5 h-5 hidden md:block" /> Ingresar

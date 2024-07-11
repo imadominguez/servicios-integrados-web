@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const About = () => {
   return (
     <div className="p-10 grid place-content-center text-center py-20 pb-10">
