@@ -2,11 +2,13 @@ import { type Product } from '@prisma/client';
 import React from 'react';
 import { Card, CardContent, CardFooter } from '../ui/card';
 import Image from 'next/image';
-import { Button } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import { currencyFormat } from '@/utils';
+import Link from 'next/link';
 
 export const ProductList = (props: Product) => {
-  const { title, description, price, color, inStock, tags, images } = props;
+  const { title, description, price, color, inStock, tags, images, slug } =
+    props;
   console.log(images);
   return (
     <Card className="overflow-hidden">
@@ -46,7 +48,15 @@ export const ProductList = (props: Product) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Añadir al carrito</Button>
+        <Link
+          href={`/product/${slug}`}
+          className={buttonVariants({
+            variant: 'default',
+            className: 'w-full',
+          })}
+        >
+          Añadir al carrito
+        </Link>
       </CardFooter>
     </Card>
   );

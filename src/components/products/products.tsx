@@ -44,7 +44,7 @@ export const Products = async (props: PageShopProps) => {
   console.log({ data, metadata });
   return (
     <>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 lg:px-4 xl:px-10 2xl:p-o max-w-[2000px]">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3  px-2 lg:px-4 xl:px-10 2xl:p-o max-w-6xl mx-auto">
         {data.map((product, index) => (
           <ProductList key={index} {...product} />
         ))}
