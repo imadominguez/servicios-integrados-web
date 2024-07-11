@@ -3,8 +3,13 @@ import React from 'react';
 import { Input } from '../ui/input';
 import Link from 'next/link';
 import { SearchIcon, ShoppingCartIcon } from 'lucide-react';
+import { UserDropdown } from './user-dropdown';
+import { auth } from '@/auth';
 
-export const Navbar = () => {
+export const Navbar = async () => {
+  const session = await auth();
+  const user = session?.user ?? null;
+
   return (
     <header className="p-7 py-5 flex items-center justify-between max-w-7xl mx-auto">
       <Link href="/" className="flex items-center gap-x-2">
@@ -50,6 +55,9 @@ export const Navbar = () => {
         </div>
         <div>
           <ShoppingCartIcon className="w-6 h-6" />
+        </div>
+        <div className="ml-1">
+          <UserDropdown name={user?.name} />
         </div>
       </div>
     </header>
