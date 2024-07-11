@@ -15,8 +15,8 @@ export default function NewAccountPage() {
   return (
     <main className="grid lg:grid-cols-2 min-h-dvh">
       <div className="flex w-full min-h-full flex-1 flex-col items-center justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-autow-full sm:max-w-sm">
-          <div className="flex items-center gap-x-3">
+        <div className="w-full sm:max-w-sm mx-auto">
+          <div className="flex items-center justify-center gap-x-3">
             <Image
               width={40}
               height={40}

@@ -44,29 +44,24 @@ export default function LoginForm() {
       method="POST"
       className="space-y-6 mt-10 sm:mx-auto w-full sm:max-w-sm"
     >
-      <div className="">
-        <div>
-          <Label
-            htmlFor="email"
-            className="block text-sm font-medium leading-6 "
-          >
-            Email
-          </Label>
-          <div className="mt-2">
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-            />
-          </div>
+      <div>
+        <Label htmlFor="email" className="block text-sm font-medium leading-6 ">
+          Email
+        </Label>
+        <div className="mt-2">
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+          />
         </div>
       </div>
 
       <div className="sm:max-w-sm w-full">
         <div className="flex items-center justify-between">
-          <Label htmlFor="password">Contrasena</Label>
+          <Label htmlFor="password">Contraseña</Label>
           <div className="text-sm">
             <Link
               className={buttonVariants({
@@ -75,7 +70,7 @@ export default function LoginForm() {
               })}
               href="#"
             >
-              Olvidaste tu contrasena?
+              Olvidaste tu contraseña?
             </Link>
           </div>
         </div>

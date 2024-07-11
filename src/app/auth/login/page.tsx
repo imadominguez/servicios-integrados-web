@@ -37,7 +37,7 @@ export default function LoginPage() {
               font.className
             )}
           >
-            Iniciar sesión en tu cuenta
+            Iniciar sesión con tu cuenta
           </h2>
         </div>
 
