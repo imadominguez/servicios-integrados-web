@@ -42,31 +42,26 @@ export default function LoginForm() {
     <form
       onSubmit={handleSubmit}
       method="POST"
-      className="space-y-6 mt-10 sm:mx-auto w-full sm:max-w-sm"
+      className="mt-10 w-full space-y-6 sm:mx-auto sm:max-w-sm"
     >
-      <div className="">
-        <div>
-          <Label
-            htmlFor="email"
-            className="block text-sm font-medium leading-6 "
-          >
-            Email
-          </Label>
-          <div className="mt-2">
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-            />
-          </div>
+      <div>
+        <Label htmlFor="email" className="block text-sm font-medium leading-6">
+          Email
+        </Label>
+        <div className="mt-2">
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+          />
         </div>
       </div>
 
-      <div className="sm:max-w-sm w-full">
+      <div className="w-full sm:max-w-sm">
         <div className="flex items-center justify-between">
-          <Label htmlFor="password">Contrasena</Label>
+          <Label htmlFor="password">Contraseña</Label>
           <div className="text-sm">
             <Link
               className={buttonVariants({
@@ -75,7 +70,7 @@ export default function LoginForm() {
               })}
               href="#"
             >
-              Olvidaste tu contrasena?
+              Olvidaste tu contraseña?
             </Link>
           </div>
         </div>
@@ -92,7 +87,7 @@ export default function LoginForm() {
 
       <Button
         variant={'primary'}
-        className="w-full mt-4 sm:max-w-sm"
+        className="mt-4 w-full sm:max-w-sm"
         type="submit"
       >
         Iniciar sesión

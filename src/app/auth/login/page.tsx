@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <div className="grid lg:grid-cols-2 min-h-dvh">
-      <div className="flex w-full min-h-full flex-1 flex-col items-center justify-center px-6 py-12 lg:px-8">
+    <div className="grid min-h-dvh lg:grid-cols-2">
+      <div className="flex min-h-full w-full flex-1 flex-col items-center justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-autow-full sm:max-w-sm">
           <div className="flex items-center gap-x-3">
             <Image
@@ -26,23 +26,23 @@ export default function LoginPage() {
               height={40}
               alt="Your Company"
               src="/logo.svg"
-              className=" h-10"
+              className="h-10"
               priority
             />
-            <h1 className="font-bold text-2xl">Servicios Integrados</h1>
+            <h1 className="text-2xl font-bold">Servicios Integrados</h1>
           </div>
           <h2
             className={cn(
-              'mt-10 text-center text-xl font-bold leading-9 tracking-tight ',
+              'mt-10 text-center text-xl font-bold leading-9 tracking-tight',
               font.className
             )}
           >
-            Iniciar sesión en tu cuenta
+            Iniciar sesión con tu cuenta
           </h2>
         </div>
 
         <LoginForm />
-        <p className="mt-10 text-center text-sm ">
+        <p className="mt-10 text-center text-sm">
           No tienes una cuenta?{' '}
           <Link
             href="/auth/new-account"
@@ -56,13 +56,13 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <div className="hidden  lg:block">
+      <div className="hidden lg:block">
         <Image
           src="/imgs/fondo.jpeg"
           alt="Iniciar sesión"
           width={500}
           height={500}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
     </div>

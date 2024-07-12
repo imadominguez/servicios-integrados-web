@@ -3,20 +3,43 @@
 import { signIn } from '@/auth';
 import { sleep } from '@/utils';
 import { AuthError } from 'next-auth';
+import { revalidatePath } from 'next/cache';
 
 // ...
+
+// ?? Esta funcion debe comprobar que el usuario exista en la base de datos y que las credenciales sean correctas, ademas de comprobar si el usuario esta verificado
+// ?? y si no lo esta enviar un mail de verificacion y redireccionar al usuario a la pagina de verificacion
 
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData
 ) {
   try {
-    await signIn('credentials', {
+    // ?? Comprobar si el usuario existe en la base de datos y si las credenciales son correctas
+    const user = await signIn('credentials', {
       ...Object.fromEntries(formData),
       redirect: false,
     });
-    return 'Success';
+
+    // ?? Comprobar si el usuario esta verificado
+    if (!user?.emailVerified) {
+      // ?? Enviar un mail de verificacion
+      // ?? Redireccionar al usuario a la pagina de verificacion
+
+      return {
+        ok: false,
+        message: 'Usuario no verificado',
+      };
+    }
+
+    revalidatePath('/');
+    // ?? En caso de que el usuario este verificado se retorna un objeto con un mensaje de exito
+    return {
+      ok: true,
+      message: 'Inicio de sesión exitoso',
+    };
   } catch (error) {
+    // ?? En caso de error se imprime el error en consola y se retorna un objeto con un mensaje de error
     if ((error as AuthError).type === 'CredentialsSignin') {
       return 'Credenciales incorrectas';
     }

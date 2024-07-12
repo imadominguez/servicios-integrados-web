@@ -26,5 +26,5 @@ export * from './order/get-paginated-orders';
 // export * from './products/get-stock-by-slug';
 // export * from './products/product-actions';
 
-// export * from './user/change-user-role';
-// export * from './user/get-paginated-users';
+export * from './user/change-user-role';
+export * from './user/get-paginated-users';
