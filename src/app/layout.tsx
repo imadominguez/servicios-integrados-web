@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import { Toaster } from 'sonner';
 import { Navbar } from '@/components/navbar/navbar';
 import { AOSInit } from './aos';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Toaster richColors />
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -25,17 +25,51 @@ export const UserDropdown = ({ name }: { name: string | null | undefined }) => {
               Mi cuenta
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>{name}</DropdownMenuLabel>
+          <DropdownMenuContent align="end" className="">
+            <DropdownMenuLabel className="text-sm">{name}</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Configuracion</DropdownMenuItem>
-            <DropdownMenuItem>Soporte</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                href="/shop/admin"
+                className={buttonVariants({
+                  variant: 'ghost',
+                  size: 'sm',
+                  className: 'w-full text-left text-xs',
+                })}
+              >
+                Administrar Tienda
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className={buttonVariants({
+                variant: 'ghost',
+                size: 'sm',
+                className: 'w-full cursor-pointer text-left text-xs',
+              })}
+            >
+              Configuracion
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className={buttonVariants({
+                variant: 'ghost',
+                size: 'sm',
+                className: 'w-full cursor-pointer text-left text-xs',
+              })}
+            >
+              Ayuda
+            </DropdownMenuItem>
+
             <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={() => {
                 // Implement logout logic here
                 logout();
               }}
+              className={buttonVariants({
+                variant: 'ghost',
+                size: 'sm',
+                className: 'w-full cursor-pointer text-left text-xs',
+              })}
             >
               <LogOutIcon className="mr-2 h-5 w-5" /> Cerrar Sesion
             </DropdownMenuItem>
@@ -46,10 +80,10 @@ export const UserDropdown = ({ name }: { name: string | null | undefined }) => {
           href={'/auth/login'}
           className={buttonVariants({
             variant: 'ghost',
-            className: 'text-sm w-full',
+            className: 'w-full text-sm',
           })}
         >
-          <LogInIcon className="mr-2 w-5 h-5 hidden md:block" /> Ingresar
+          <LogInIcon className="mr-2 hidden h-5 w-5 md:block" /> Ingresar
         </Link>
       )}
     </>

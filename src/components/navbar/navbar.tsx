@@ -44,7 +44,7 @@ function NavbarLinks({
             className={buttonVariants({
               variant: 'ghost',
               size: 'sm',
-              className: 'text-sm w-full',
+              className: 'w-full text-sm',
             })}
           >
             {name}
@@ -60,15 +60,15 @@ export const Navbar = async () => {
   const user = session?.user ?? null;
 
   return (
-    <header className="p-7 py-5 flex items-center justify-between max-w-7xl mx-auto">
+    <header className="mx-auto flex items-center justify-between p-7 py-5">
       <Sheet>
         <SheetTrigger className="lg:hidden" asChild>
           <Button variant="outline">
-            <AlignJustifyIcon className="w-6 h-6" />
+            <AlignJustifyIcon className="h-6 w-6" />
           </Button>
         </SheetTrigger>
         <SheetContent side={'left'} className="flex flex-col justify-between">
-          <nav className="flex flex-col items-start gap-y-5 list-none">
+          <nav className="flex list-none flex-col items-start gap-y-5">
             <NavbarLinks links={LINKS_NAVBAR} />
           </nav>
           <div>
@@ -76,7 +76,7 @@ export const Navbar = async () => {
           </div>
         </SheetContent>
       </Sheet>
-      <Link href="/" className=" items-center gap-x-2 hidden lg:flex">
+      <Link href="/" className="hidden items-center gap-x-2 lg:flex">
         <Image
           src="/imgs/logo-si.png"
           alt="Your Company"
@@ -96,12 +96,12 @@ export const Navbar = async () => {
       <div className="flex items-center gap-x-2">
         <div className="relative">
           <Input type="text" placeholder="Buscar" className="rounded-full" />
-          <SearchIcon className="absolute right-2 top-2 w-7 h-6" />
+          <SearchIcon className="absolute right-2 top-2 h-6 w-7" />
         </div>
         <div>
-          <ShoppingCartIcon className="w-6 h-6" />
+          <ShoppingCartIcon className="h-6 w-6" />
         </div>
-        <div className="hidden lg:block ml-1">
+        <div className="ml-1 hidden lg:block">
           <UserDropdown name={user?.name} />
         </div>
       </div>
