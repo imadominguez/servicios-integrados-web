@@ -20,6 +20,8 @@ Table Product {
   slug String [unique, not null]
   tags String[] [not null]
   images String[] [not null]
+  inDiscount Boolean [not null, default: false]
+  discount Int
   category Category [not null]
   categoryId String [not null]
   ProductImage ProductImage [not null]
