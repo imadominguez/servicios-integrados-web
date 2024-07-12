@@ -1,6 +1,6 @@
 export const revalidate = 0;
 
-import { Title } from '@/components';
+import { Title } from '@/components/ui/title/Title';
 import { getPaginatedUsers } from '@/actions';
 import { redirect } from 'next/navigation';
 import { UsersTable } from './ui/UsersTable';

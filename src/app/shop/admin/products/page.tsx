@@ -2,8 +2,7 @@ export const revalidate = 0;
 
 import Link from 'next/link';
 import { currencyFormat } from '@/utils';
-// import { getPaginatedProductsWidthImages } from '@/actions';
-// import { Pagination, ProductImage, Title } from '@/components';
+import { getPaginatedProductsWidthImages } from '@/actions';
 import { Metadata } from 'next';
 import { Title } from '@/components/ui/title/Title';
 import prisma from '@/lib/prisma';
@@ -46,8 +45,8 @@ const fetchProducts = async () => {
 
 export default async function OrdersPageAdmin({ searchParams }: Props) {
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
-  // const { products, currentPage, totalPages } =
-  //   await getPaginatedProductsWidthImages({ page });
+  const { products, currentPage, totalPages } =
+    await getPaginatedProductsWidthImages({ page });
   const { data, error } = await fetchProducts();
 
   return (

@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { getCategories, getProductBySlug } from '@/actions';
-import { Title } from '@/components';
+import { Title } from '@/components/ui/title/Title';
 import { ProductForm } from './ui/ProductForm';
 import { Metadata } from 'next';
 

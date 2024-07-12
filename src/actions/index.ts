@@ -18,13 +18,13 @@ export * from './order/get-paginated-orders';
 // export * from './payments/set-transaction-id';
 // export * from './payments/paypal-check-payment';
 
-// export * from './products/create-update-product';
-// export * from './products/delete-product-image';
-// export * from './products/get-all-products';
-// export * from './products/get-product-by-slug';
-// export * from './products/get-product-image-random-by-categorie';
-// export * from './products/get-stock-by-slug';
-// export * from './products/product-actions';
+export * from './products/create-update-product';
+export * from './products/delete-product-image';
+export * from './products/get-all-products';
+export * from './products/get-product-by-slug';
+export * from './products/get-product-image-random-by-categorie';
+export * from './products/get-stock-by-slug';
+export * from './products/product-actions';
 
 export * from './user/change-user-role';
 export * from './user/get-paginated-users';
