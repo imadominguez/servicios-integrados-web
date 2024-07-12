@@ -2,10 +2,11 @@
 
 import { auth } from '@/auth';
 import prisma from '@/lib/prisma';
+import { User } from '@prisma/client';
 export const getPaginatedOrders = async () => {
   try {
     const session = await auth();
-    if (session?.user.role !== 'admin') {
+    if ((session?.user as User).role !== 'admin') {
       return {
         ok: false,
         message: 'El usuario no es administrador',
