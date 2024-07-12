@@ -11,7 +11,7 @@ const PAGE_SIZE = 10;
 const fetchProducts = async ({ take = PAGE_SIZE, skip = 0 }) => {
   'use server';
 
-  const results = await prisma.product.findMany({
+  const results = prisma.product.findMany({
     take,
     skip,
     orderBy: {
@@ -19,14 +19,16 @@ const fetchProducts = async ({ take = PAGE_SIZE, skip = 0 }) => {
     },
   });
 
-  const total = await prisma.product.count();
+  const total = prisma.product.count();
+  const promises = await Promise.all([results, total]);
+  const [products, totalProducts] = promises;
 
   revalidatePath('/shop');
   return {
-    data: results,
+    data: products,
     metadata: {
-      hasNextPage: skip + take < total,
-      totalPages: Math.ceil(total / take),
+      hasNextPage: skip + take < totalProducts,
+      totalPages: Math.ceil(totalProducts / take),
     },
   };
 };
@@ -44,7 +46,7 @@ export const Products = async (props: PageShopProps) => {
   console.log({ data, metadata });
   return (
     <>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3  px-2 lg:px-4 xl:px-10 2xl:p-o max-w-6xl mx-auto">
+      <div className="2xl:p-o mx-auto grid max-w-6xl grid-cols-1 gap-6 px-2 sm:grid-cols-2 lg:grid-cols-3 lg:px-4 xl:px-10">
         {data.map((product, index) => (
           <ProductList key={index} {...product} />
         ))}

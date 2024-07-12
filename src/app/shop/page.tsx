@@ -6,10 +6,10 @@ export type PageShopProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export default async function ShopPage(props: PageShopProps) {
+export default function ShopPage(props: PageShopProps) {
   return (
     <div>
-      <main className="max-w-[2000px] mx-auto px-3 xl:p-0">
+      <main className="mx-auto max-w-[2000px] px-3 xl:p-0">
         <Products {...props} />
       </main>
     </div>

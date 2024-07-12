@@ -1,21 +1,15 @@
-import { ChevronLeftCircle, ChevronRightCircle } from 'lucide-react';
+'use server';
+
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import React from 'react';
-import {
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-  Pagination as PaginationShadcn,
-} from '../ui/pagination';
-import { cn } from '@/lib/utils';
 
 type PaginationProps = {
   page?: string;
   totalPages: number;
   hasNextPage: boolean;
 };
+
 export const Pagination = (props: PaginationProps) => {
   const { page = 1, totalPages, hasNextPage } = props;
 
@@ -27,73 +21,65 @@ export const Pagination = (props: PaginationProps) => {
 
     if (currentPage <= 3) {
       startPage = 1;
-      endPage = 5;
+      endPage = Math.min(totalPages, 5);
     } else if (currentPage >= totalPages - 2) {
-      startPage = totalPages - 4;
+      startPage = Math.max(1, totalPages - 4);
       endPage = totalPages;
     }
 
     return Array.from(
       { length: endPage - startPage + 1 },
-      (_, i) => i + startPage
+      (_, i) => startPage + i
     );
   };
 
   const pages = getPagesToShow();
+  console.log({ pages });
 
   return (
-    <div className="flex items-center justify-between border-t  px-4 py-3 sm:px-6">
-      <div className="flex flex-1 justify-between sm:hidden">
-        <a
-          href="#"
-          className="relative inline-flex items-center rounded-md border  x-4 py-2 text-sm font-medium "
-        >
-          Previous
-        </a>
-        <a
-          href="#"
-          className="relative ml-3 inline-flex items-center rounded-md border  px-4 py-2 text-sm font-medium "
-        >
-          Next
-        </a>
-      </div>
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm ">
-            Mostrando <span className="font-medium">1</span> de{' '}
-            <span className="font-medium">10</span> sobre{' '}
-            <span className="font-medium">{totalPages}</span> paginas
-          </p>
-        </div>
-        <div>
-          <PaginationShadcn>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  href={`?page=${Number(page) - 1}`}
-                ></PaginationPrevious>
-              </PaginationItem>
+    <div className="flex items-center justify-center space-x-6 text-black">
+      <Link
+        className={cn(
+          'rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50',
+          currentPage === 1 ? 'pointer-events-none bg-gray-100' : ''
+        )}
+        scroll={false}
+        href={`?page=${currentPage - 1}`}
+      >
+        Previous
+      </Link>
 
-              {pages.map(page => (
-                <PaginationLink
-                  key={page}
-                  href={`?page=${Number(page)}`}
-                  // className={cn('', {
-                  //   'bg-primary text-white': page === currentPage,
-                  // })}
-                  isActive={page === currentPage}
-                >
-                  {page}
-                </PaginationLink>
-              ))}
+      <nav
+        aria-label="Pagination"
+        className="relative z-0 inline-flex -space-x-px rounded-md"
+      >
+        {pages.map((p, i) => (
+          <Link
+            key={p}
+            scroll={false}
+            className={cn(
+              'relative inline-flex items-center border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50',
+              p === currentPage ? 'pointer-events-none bg-gray-100' : '',
+              i === 0 ? 'rounded-l-md' : '',
+              i === pages.length - 1 ? 'rounded-r-md' : ''
+            )}
+            href={`?page=${p}`}
+          >
+            {p}
+          </Link>
+        ))}
+      </nav>
 
-              <PaginationItem>
-                <PaginationNext href={`?page=${Number(page) + 1}`} />
-              </PaginationItem>
-            </PaginationContent>
-          </PaginationShadcn>
-        </div>
-      </div>
+      <Link
+        className={cn(
+          'rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50',
+          !hasNextPage ? 'pointer-events-none bg-gray-100' : ''
+        )}
+        scroll={false}
+        href={`?page=${currentPage + 1}`}
+      >
+        Next
+      </Link>
     </div>
   );
 };
