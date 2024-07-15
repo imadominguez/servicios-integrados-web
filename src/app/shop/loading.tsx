@@ -2,8 +2,8 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 
 export default function Loading() {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 lg:px-4 xl:px-10 2xl:p-o max-w-[2000px]">
-      {new Array(10).fill(0).map((_, index) => (
+    <div className="grid max-w-[2000px] grid-cols-1 gap-6 px-2 sm:grid-cols-2 lg:grid-cols-3 lg:px-4 xl:grid-cols-4 xl:px-10 2xl:p-0">
+      {/* {new Array(10).fill(0).map((_, index) => (
         <Card
           key={index}
           className="max-w-sm rounded-lg overflow-hidden shadow-lg border-zinc-300"
@@ -28,7 +28,7 @@ export default function Loading() {
             </div>
           </CardFooter>
         </Card>
-      ))}
+      ))} */}
     </div>
   );
 }
