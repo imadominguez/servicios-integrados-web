@@ -1,8 +1,8 @@
 'use server';
 
 import { cn } from '@/lib/utils';
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
 
 type PaginationProps = {
   page?: string;
@@ -34,10 +34,9 @@ export const Pagination = (props: PaginationProps) => {
   };
 
   const pages = getPagesToShow();
-  console.log({ pages });
 
   return (
-    <div className="flex items-center justify-center space-x-6 text-black">
+    <div className="my-10 flex items-center justify-center space-x-6 text-black">
       <Link
         className={cn(
           'rounded-md border border-gray-300 px-3 py-2 text-sm font-medium hover:bg-gray-50',
@@ -46,7 +45,7 @@ export const Pagination = (props: PaginationProps) => {
         scroll={false}
         href={`?page=${currentPage - 1}`}
       >
-        Previous
+        <ArrowLeftIcon className="h-5 w-5" />
       </Link>
 
       <nav
@@ -78,7 +77,7 @@ export const Pagination = (props: PaginationProps) => {
         scroll={false}
         href={`?page=${currentPage + 1}`}
       >
-        Next
+        <ArrowRightIcon className="h-5 w-5" />
       </Link>
     </div>
   );

@@ -9,7 +9,7 @@ export type PageShopProps = {
 export default function ShopPage(props: PageShopProps) {
   return (
     <div>
-      <main className="mx-auto max-w-[2000px] px-3 xl:p-0">
+      <main className="mx-auto max-w-6xl px-3 xl:p-0">
         <Products {...props} />
       </main>
     </div>
