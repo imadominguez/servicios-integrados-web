@@ -7,6 +7,7 @@ import { UserDropdown } from './user-dropdown';
 import { auth } from '@/auth';
 import { Button, buttonVariants } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { SearchInput } from './search-input';
 
 const LINKS_NAVBAR = [
   {
@@ -15,7 +16,7 @@ const LINKS_NAVBAR = [
   },
   {
     name: 'Tienda online',
-    href: '#',
+    href: '/shop',
   },
   {
     name: 'Calefacción',
@@ -76,7 +77,7 @@ export const Navbar = async () => {
           </div>
         </SheetContent>
       </Sheet>
-      <Link href="/" className="hidden items-center gap-x-2 lg:flex">
+      <Link href="/" className="hidden flex-1 items-center gap-x-2 lg:flex">
         <Image
           src="/imgs/logo-si.png"
           alt="Your Company"
@@ -93,11 +94,8 @@ export const Navbar = async () => {
         </ul>
       </nav>
 
-      <div className="flex items-center gap-x-2">
-        <div className="relative">
-          <Input type="text" placeholder="Buscar" className="rounded-full" />
-          <SearchIcon className="absolute right-2 top-2 h-6 w-7" />
-        </div>
+      <div className="flex flex-1 items-center justify-end gap-x-2">
+        <SearchInput />
         <div>
           <ShoppingCartIcon className="h-6 w-6" />
         </div>
