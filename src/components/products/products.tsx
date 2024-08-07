@@ -9,7 +9,12 @@ import { FilterProducts } from './filter-products';
 export type fetchProductsType = typeof fetchProducts;
 
 const PAGE_SIZE = 10;
-const fetchProducts = async ({ take = PAGE_SIZE, skip = 0, search = '' }) => {
+const fetchProducts = async ({
+  take = PAGE_SIZE,
+  skip = 0,
+  search = '',
+  category = '',
+}) => {
   'use server';
 
   const results = prisma.product.findMany({
@@ -17,6 +22,7 @@ const fetchProducts = async ({ take = PAGE_SIZE, skip = 0, search = '' }) => {
     skip,
     where: {
       title: search ? { contains: search } : undefined,
+      category: category ? { name: { equals: category } } : undefined,
     },
     orderBy: {
       price: 'asc',
@@ -43,12 +49,14 @@ export const Products = async (props: PageShopProps) => {
   const take = PAGE_SIZE;
   const skip = (pageNumber - 1) * take;
   const search = (props.searchParams.search as string) ?? '';
+  const category = (props.searchParams.category as string) ?? '';
   const { data, metadata } = await fetchProducts({
     take,
     skip,
     search,
+    category,
   });
-  console.log({ data, metadata });
+  console.log({ metadata });
   return (
     <>
       <div className="mb-5 flex items-center justify-end px-2 lg:px-4 xl:px-10 2xl:px-0">
@@ -60,7 +68,13 @@ export const Products = async (props: PageShopProps) => {
           <ProductList key={index} {...product} />
         ))}
       </div>
-      <Pagination {...metadata} {...props.searchParams} />
+
+      <Pagination
+        category={category}
+        search={search}
+        {...metadata}
+        {...props.searchParams}
+      />
     </>
   );
 };

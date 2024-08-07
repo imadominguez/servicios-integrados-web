@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navbar/navbar';
 import { About } from '@/components/pages/home/about';
 import { Carrousel } from '@/components/pages/home/carrousel';
+
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -9,7 +10,7 @@ export default function HomePage() {
       <Navbar />
       <div className="mx-auto max-w-[2000px]">
         <Carrousel />
-        <div className="grid gap-10 bg-muted-foreground/5 p-20 px-5 py-12 md:grid-cols-3">
+        <div className="hidden gap-10 bg-muted-foreground/5 p-20 px-5 py-12 md:grid-cols-3 lg:grid">
           <div
             data-aos="fade-up"
             data-aos-duration="500"
@@ -20,6 +21,7 @@ export default function HomePage() {
               Realizamos envíos a todo el país.
             </p>
           </div>
+
           <div
             data-aos="fade-up"
             data-aos-duration="900"
@@ -30,6 +32,7 @@ export default function HomePage() {
               Envíos a través de Correo Argentino.
             </p>
           </div>
+
           <div
             data-aos="fade-up"
             data-aos-duration="500"

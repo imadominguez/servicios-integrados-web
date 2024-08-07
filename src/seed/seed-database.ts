@@ -32,26 +32,7 @@ async function main() {
   const categoriesDB = await prisma.category.findMany();
   // Crea un mapa para asignar nombres de categorías a identificadores de base de datos
 
-  // Para cada producto, crea registros en la base de datos y asocia imágenes
-  // products.forEach(async product => {
-  //   // Crea un nuevo producto en la base de datos
-
-  //   const newProduct = await prisma.product.create({
-  //     data: {
-  //       title: product.title,
-  //       description: product.description,
-  //       price: product.price,
-  //       color: product.color,
-  //       inStock: product.inStock,
-  //       slug: product.slug,
-  //       categoryId: categoriesDB[0].id, // Asigna la primera categoría
-  //       tags: product.tags.map(tag => tag),
-  //       images: [...(product.images ?? []).map(image => image)] || [],
-  //     },
-  //   });
-
-  //   // Crea registros de imágenes relacionadas con el producto
-  // });
+  // Crea registros de productos con imágenes y categorías asignadas aleatoriamente
   for (let i = 0; i < products.length; i++) {
     const newProduct = await prisma.product.create({
       data: {
@@ -61,7 +42,8 @@ async function main() {
         color: 'black',
         inStock: Math.floor(Math.random() * 100),
         slug: `producto-${i + 1}`,
-        categoryId: categoriesDB[0].id,
+        categoryId:
+          categoriesDB[Math.floor(Math.random() * categoriesDB.length)].id,
         tags: ['tag1', 'tag2'],
         images: [...(products[i].images ?? [])] || [],
       },

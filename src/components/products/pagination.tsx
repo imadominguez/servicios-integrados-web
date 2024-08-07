@@ -8,6 +8,8 @@ type PaginationProps = {
   page?: string;
   totalPages: number;
   hasNextPage: boolean;
+  category: string;
+  search: string;
 };
 
 export const Pagination = (props: PaginationProps) => {
@@ -35,6 +37,7 @@ export const Pagination = (props: PaginationProps) => {
 
   const pages = getPagesToShow();
 
+  const propsPage = `${props.category ? `&category=${props.category}` : ''}${props.search ? `&search=${props.search}` : ''}`;
   return (
     <div className="my-10 flex items-center justify-center space-x-6 text-black">
       <Link
@@ -43,7 +46,7 @@ export const Pagination = (props: PaginationProps) => {
           currentPage === 1 ? 'pointer-events-none bg-gray-100' : ''
         )}
         scroll={false}
-        href={`?page=${currentPage - 1}`}
+        href={`?page=${currentPage - 1}${propsPage}`}
       >
         <ArrowLeftIcon className="h-5 w-5" />
       </Link>
@@ -62,7 +65,7 @@ export const Pagination = (props: PaginationProps) => {
               i === 0 ? 'rounded-l-md' : '',
               i === pages.length - 1 ? 'rounded-r-md' : ''
             )}
-            href={`?page=${p}`}
+            href={`?page=${p}${propsPage}`}
           >
             {p}
           </Link>
@@ -75,7 +78,7 @@ export const Pagination = (props: PaginationProps) => {
           !hasNextPage ? 'pointer-events-none bg-gray-100' : ''
         )}
         scroll={false}
-        href={`?page=${currentPage + 1}`}
+        href={`?page=${currentPage + 1}${propsPage}`}
       >
         <ArrowRightIcon className="h-5 w-5" />
       </Link>

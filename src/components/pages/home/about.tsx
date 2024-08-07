@@ -1,10 +1,10 @@
 export const About = () => {
   return (
-    <div className="p-10 grid place-content-center text-center py-20 pb-10">
+    <div className="grid place-content-center bg-muted-foreground/10 p-10 py-20 pb-10 text-center">
       <h3
         data-aos="fade-up"
         data-aos-duration="500"
-        className="text-xl md:text-3xl lg:text-4xl xl:text-4xl text-center font-semibold text-primary mb-10"
+        className="mb-10 text-center text-xl font-semibold text-primary md:text-3xl lg:text-4xl xl:text-4xl"
       >
         Sobre Nosotros
       </h3>
@@ -12,7 +12,7 @@ export const About = () => {
       <p
         data-aos="fade-up"
         data-aos-duration="900"
-        className="mb-20 my-5 max-w-4xl leading-7 tracking-normal"
+        className="my-5 mb-20 max-w-4xl leading-7 tracking-normal"
       >
         Descubre nuestra plataforma integral que ofrece servicios expertos en
         calefacción, seguridad y computación. Desde instalaciones de sistemas de

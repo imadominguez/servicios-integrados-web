@@ -20,7 +20,7 @@ export const Carrousel = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        className="max-h-[80dvh]"
+        className="max-h-[75dvh]"
       >
         <SwiperSlide>
           <Image

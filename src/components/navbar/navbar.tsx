@@ -8,23 +8,24 @@ import { auth } from '@/auth';
 import { Button, buttonVariants } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { SearchInput } from './search-input';
+import { cn } from '@/lib/utils';
+import { Links } from './navbar-link';
 
 const LINKS_NAVBAR = [
   {
     name: 'Nuestra empresa',
     href: '#',
+    isDisable: false,
   },
   {
     name: 'Tienda online',
     href: '/shop',
+    isDisable: false,
   },
   {
     name: 'Calefacción',
     href: '#',
-  },
-  {
-    name: 'Computación',
-    href: '#',
+    isDisable: true,
   },
 ];
 
@@ -34,22 +35,14 @@ function NavbarLinks({
   links: {
     name: string;
     href: string;
+    isDisable: boolean;
   }[];
 }) {
   return (
     <>
-      {links.map(({ name, href }, i) => (
+      {links.map((link, i) => (
         <li key={i} className="w-full">
-          <Link
-            href={href}
-            className={buttonVariants({
-              variant: 'ghost',
-              size: 'sm',
-              className: 'w-full text-sm',
-            })}
-          >
-            {name}
-          </Link>
+          <Links {...link} />
         </li>
       ))}
     </>
@@ -62,6 +55,7 @@ export const Navbar = async () => {
 
   return (
     <header className="mx-auto flex items-center justify-between p-7 py-5">
+      {/* mobile */}
       <Sheet>
         <SheetTrigger className="lg:hidden" asChild>
           <Button variant="outline">
@@ -69,7 +63,7 @@ export const Navbar = async () => {
           </Button>
         </SheetTrigger>
         <SheetContent side={'left'} className="flex flex-col justify-between">
-          <nav className="flex list-none flex-col items-start gap-y-5">
+          <nav className="flex list-none flex-col items-start gap-y-5 pt-5">
             <NavbarLinks links={LINKS_NAVBAR} />
           </nav>
           <div>

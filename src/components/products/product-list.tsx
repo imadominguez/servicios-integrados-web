@@ -11,8 +11,8 @@ export const ProductList = (props: Product) => {
     props;
   console.log(images);
   return (
-    <Card className="overflow-hidden">
-      <div className="relative h-[350px] sm:h-[450px] max-h-72">
+    <Card className="overflow-hidden fade-in">
+      <div className="relative h-[350px] max-h-72 sm:h-[450px]">
         <Image
           src={`/imgs/${images[0]}`}
           alt=""
@@ -30,15 +30,15 @@ export const ProductList = (props: Product) => {
         />
       </div>
       <CardContent>
-        <div className="relative  pt-3">
-          <h3 className="text-lg  group-hover:underline group-hover:underline-offset-4">
+        <div className="relative pt-3">
+          <h3 className="text-lg group-hover:underline group-hover:underline-offset-4">
             {title}
           </h3>
 
-          <div className="mt-1.5 flex items-center justify-between ">
+          <div className="mt-1.5 flex items-center justify-between">
             <p>
               Precio: &nbsp;
-              <span className="tracking-wide font-semibold text-2xl text-primary">
+              <span className="text-2xl font-semibold tracking-wide text-primary">
                 {currencyFormat(price)}
               </span>
             </p>

@@ -5,6 +5,8 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { SelectValue } from '@radix-ui/react-select';
+import { SelectCategoryFilter } from './select-category-filter';
+import prisma from '@/lib/prisma';
 
 type FilterProductsProps = {
   category?: string;
@@ -12,8 +14,15 @@ type FilterProductsProps = {
   sort?: string;
 };
 
-export const FilterProducts = (props: FilterProductsProps) => {
-  console.log({ props });
+const fetchCategories = async () => {
+  'use server';
+  const categories = prisma.category.findMany();
+  return categories;
+};
+
+export const FilterProducts = async (props: FilterProductsProps) => {
+  const categories = await fetchCategories();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -25,40 +34,27 @@ export const FilterProducts = (props: FilterProductsProps) => {
       <SheetContent>
         <div className="p-4">
           <h2 className="text-lg font-bold">Filtrar productos</h2>
-          <form className="mt-4">
-            <div className="mb-4">
-              <Label>Categoría</Label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Todas" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Accesorios">Accesorios</SelectItem>
-                  <SelectItem value="Ropa">Ropa</SelectItem>
-                  <SelectItem value="Zapatos">Zapatos</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
 
-            <div className="mb-4">
-              <Label className="block text-sm font-medium text-gray-700">
-                Ordenar por
-              </Label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Relevancia" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Relevancia">Relevancia</SelectItem>
-                  <SelectItem value="Precio">Precio</SelectItem>
-                  <SelectItem value="Nombre">Nombre</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button className="w-full" type="submit">
-              Filtrar
-            </Button>
-          </form>
+          <div className="mb-4">
+            <Label>Categoría</Label>
+            <SelectCategoryFilter categories={categories} />
+          </div>
+
+          <div className="mb-4">
+            <Label className="block text-sm font-medium text-gray-700">
+              Ordenar por
+            </Label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Relevancia" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Relevancia">Relevancia</SelectItem>
+                <SelectItem value="Precio">Precio</SelectItem>
+                <SelectItem value="Nombre">Nombre</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </SheetContent>
     </Sheet>

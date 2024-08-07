@@ -15,13 +15,6 @@ enum Color {
   magenta
 }
 
-// enum Gender {
-//   men
-//   women
-//   kid
-//   unisex
-// }
-
 enum Role {
   admin
   user
@@ -43,7 +36,7 @@ model Product {
   description String
   price       Float    @default(0)
   color       Color?
-  inStock     Int
+  inStock     Int      @default(0)
   slug        String   @unique
   tags        String[] @default([])
   images      String[]
